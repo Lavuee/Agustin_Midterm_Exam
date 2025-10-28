@@ -1,0 +1,14 @@
+<div class="container">
+    <h2>Saved Cities</h2>
+  
+    <div *ngIf="cities.length === 0" class="empty">
+      No cities saved yet.
+    </div>
+  
+    <div *ngFor="let city of cities" class="city-card">
+      <h3>{{ city.name }}</h3>
+      <p>🌡️ {{ city.temperature }}°C</p>
+      <p>☁️ {{ city.description }}</p>
+    </div>
+  </div>
+  

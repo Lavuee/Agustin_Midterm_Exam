@@ -1,0 +1,25 @@
+<div class="container">
+    <h2>Weather Finder</h2>
+  
+    <form (ngSubmit)="getWeather()" class="search-form">
+      <input
+        type="text"
+        placeholder="Enter city name"
+        [(ngModel)]="city"
+        name="city"
+        required
+      />
+      <button type="submit" [disabled]="isLoading">Search</button>
+    </form>
+  
+    <div *ngIf="isLoading" class="loading">Loading...</div>
+    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+  
+    <div *ngIf="weatherData" class="result">
+      <h3>{{ weatherData.name }}</h3>
+      <p>🌡️ Temperature: {{ weatherData.temperature }}°C</p>
+      <p>☁️ {{ weatherData.description }}</p>
+      <button class="save-btn" (click)="saveCity()">Save City</button>
+    </div>
+  </div>
+  
